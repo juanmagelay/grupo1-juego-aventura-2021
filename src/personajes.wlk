@@ -1,4 +1,6 @@
 import wollok.game.*
+import elementos.*
+import nivel_bloques.*
 
 // en la implementación real, conviene tener un personaje por nivel
 // los personajes probablemente tengan un comportamiendo más complejo que solamente
@@ -10,8 +12,21 @@ class PersonajeSimple {
 }
 
 class PersonajeNivel1 inherits PersonajeSimple {
+	method laCajaQueTengoArriba() {
+		return nivelBloques.cajas().find( { c => self.posicionDeCajaArribaIgualPersonaje(c) } )
+	}
+	method posicionDeCajaArribaIgualPersonaje(unaCaja) {
+		return 
+			unaCaja.position().y() == (self.position().y()) and
+			unaCaja.position().x() == (self.position().x())
+	}	
 	method moverAArriba() {
-		self.position(self.position().up(1))
+		if ( nivelBloques.cajas().any( { c => self.posicionDeCajaArribaIgualPersonaje(c) } )) {
+			self.position(self.position().up(1))	
+			self.laCajaQueTengoArriba().moverAArriba()
+		} else {	
+			self.position(self.position().up(1))	
+		}
 	}
 	method moverAAbajo() {
 		self.position(self.position().down(1))
@@ -22,4 +37,5 @@ class PersonajeNivel1 inherits PersonajeSimple {
 	method moverAIzquierda() {
 		self.position(self.position().left(1))
 	}
+	
 }

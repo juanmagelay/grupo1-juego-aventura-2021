@@ -6,22 +6,27 @@ import nivel_llaves.*
 
 
 object nivelBloques {
-
+	var caja1 = new Bloque(position=game.at(3,12))
+	var caja2 = new Bloque(position=game.at(4,8))
+	const property cajas = [caja1, caja2]
+	
 	method configurate() {
 		// fondo - es importante que sea el primer visual que se agregue
 		game.addVisual(new Fondo(image="fondoCompleto.png"))
 				 
 		// otros visuals, p.ej. bloques o llaves
-		game.addVisual(new Bloque(position=game.at(3,12)))
+		game.addVisual(caja1)
+		game.addVisual(caja2)
 			
 		// personaje, es importante que sea el último visual que se agregue
 		var personaje = new PersonajeNivel1()
 		game.addVisual(personaje)
 		keyboard.up().onPressDo{personaje.moverAArriba()}
+		keyboard.up().onPressDo{personaje.laCajaQueTengoArriba().moverAArriba()}
 		keyboard.down().onPressDo{personaje.moverAAbajo()}
 		keyboard.right().onPressDo{personaje.moverADerecha()}
 		keyboard.left().onPressDo{personaje.moverAIzquierda()}
-		// teclado
+		
 		// este es para probar, no es necesario dejarlo
 		keyboard.n().onPressDo({ self.terminar() })
 
