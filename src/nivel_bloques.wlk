@@ -15,11 +15,16 @@ object nivelBloques {
 		game.addVisual(new Bloque(position=game.at(3,12)))
 			
 		// personaje, es importante que sea el último visual que se agregue
-		game.addVisual(personajeSimple)
-		
+		var personaje = new PersonajeNivel1()
+		game.addVisual(personaje)
+		keyboard.up().onPressDo{personaje.moverAArriba()}
+		keyboard.down().onPressDo{personaje.moverAAbajo()}
+		keyboard.right().onPressDo{personaje.moverADerecha()}
+		keyboard.left().onPressDo{personaje.moverAIzquierda()}
 		// teclado
 		// este es para probar, no es necesario dejarlo
-		keyboard.t().onPressDo({ self.terminar() })
+		keyboard.n().onPressDo({ self.terminar() })
+
 
 		// en este no hacen falta colisiones
 	}
@@ -29,7 +34,7 @@ object nivelBloques {
 		game.clear()
 		// después puedo volver a agregar el fondo, y algún visual para que no quede tan pelado
 		game.addVisual(new Fondo(image="fondoCompleto.png"))
-		game.addVisual(personajeSimple)
+		game.addVisual(new PersonajeNivel1())
 		// después de un ratito ...
 		game.schedule(2500, {
 			game.clear()
