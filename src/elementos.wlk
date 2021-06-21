@@ -14,6 +14,6 @@ class Bloque {
 			self.position(self.position().right(1))
 		} else if ( direccion == "izquierda" and (self.position().x() > 0) ) { 
 			self.position(self.position().left(1))
-		}
+		} //getObjectsIn(position)
 	}
 }
