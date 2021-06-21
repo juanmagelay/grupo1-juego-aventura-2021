@@ -6,10 +6,14 @@ class Bloque {
 	
 	// agregar comportamiento	
 	method moverHacia(direccion) {
-		if ( direccion == "arriba" ) { self.position(self.position().up(1)) }
-		else if ( direccion == "abajo" ) { self.position(self.position().down(1)) }
-		else if ( direccion == "derecha" ) { self.position(self.position().right(1)) }
-		else { self.position(self.position().left(1)) }
+		if ( direccion == "arriba" and (self.position().y() < game.height() -1) ) { 
+			self.position(self.position().up(1))
+		} else if ( direccion == "abajo" and (self.position().y() > 0) ) { 
+			self.position(self.position().down(1))
+		} else if ( direccion == "derecha" and (self.position().x() < game.width() -1) ) { 
+			self.position(self.position().right(1))
+		} else if ( direccion == "izquierda" and (self.position().x() > 0) ) { 
+			self.position(self.position().left(1))
+		}
 	}
 }
-

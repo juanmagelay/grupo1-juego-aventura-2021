@@ -11,9 +11,5 @@ program juego_aventura {
 
 	nivelBloques.configurate()	
 	
-	
-	//game.say(personaje,personaje.mensaje())
-	//game.whenCollideDo(objeto, accionConColisionado)
-	
 	game.start()
 }
