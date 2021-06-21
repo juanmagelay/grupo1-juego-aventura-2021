@@ -22,19 +22,14 @@ object nivelBloques {
 		var personaje = new PersonajeNivel1()
 		game.addVisual(personaje)
 		keyboard.up().onPressDo{personaje.moverAArriba()}
-		keyboard.up().onPressDo{personaje.laCajaQueTengoArriba().moverAArriba()}
 		keyboard.down().onPressDo{personaje.moverAAbajo()}
 		keyboard.right().onPressDo{personaje.moverADerecha()}
 		keyboard.left().onPressDo{personaje.moverAIzquierda()}
 		
 		//colision
-		game.whenCollideDo(personaje, { c => c.moverAArriba() } )
+		game.whenCollideDo(personaje, { c => c.moverHacia(personaje.direccion()) } )
 		
-		// este es para probar, no es necesario dejarlo
 		keyboard.n().onPressDo({ self.terminar() })
-
-
-		// en este no hacen falta colisiones
 	}
 	
 	method terminar() {
