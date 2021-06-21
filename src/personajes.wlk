@@ -12,7 +12,7 @@ class PersonajeSimple {
 }
 
 class PersonajeNivel1 inherits PersonajeSimple {
-	method laCajaQueTengoArriba() {
+	/*method laCajaQueTengoArriba() {
 		return nivelBloques.cajas().find( { c => self.posicionDeCajaArribaIgualPersonaje(c) } )
 	}
 	method posicionDeCajaArribaIgualPersonaje(unaCaja) {
@@ -27,6 +27,9 @@ class PersonajeNivel1 inherits PersonajeSimple {
 		} else {	
 			self.position(self.position().up(1))	
 		}
+	}*/
+	method moverAArriba() {
+		self.position(self.position().up(1))
 	}
 	method moverAAbajo() {
 		self.position(self.position().down(1))
@@ -37,5 +40,5 @@ class PersonajeNivel1 inherits PersonajeSimple {
 	method moverAIzquierda() {
 		self.position(self.position().left(1))
 	}
-	
+	method mensaje() { return "Se movió" } 
 }

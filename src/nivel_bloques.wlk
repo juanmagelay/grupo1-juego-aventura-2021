@@ -27,6 +27,9 @@ object nivelBloques {
 		keyboard.right().onPressDo{personaje.moverADerecha()}
 		keyboard.left().onPressDo{personaje.moverAIzquierda()}
 		
+		//colision
+		game.whenCollideDo(personaje, { c => c.moverAArriba() } )
+		
 		// este es para probar, no es necesario dejarlo
 		keyboard.n().onPressDo({ self.terminar() })
 
