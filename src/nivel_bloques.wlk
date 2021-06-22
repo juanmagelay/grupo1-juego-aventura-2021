@@ -28,7 +28,7 @@ object nivelBloques {
 		
 		//colision
 		game.whenCollideDo(personaje, { c => c.moverHacia(personaje.direccion()) } )
-				
+			
 		keyboard.n().onPressDo({ self.terminar() })
 	}
 	
