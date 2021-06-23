@@ -1,7 +1,6 @@
 import wollok.game.*
 import elementos.*
 import nivel_bloques.*
-import direcciones.*
 
 // en la implementación real, conviene tener un personaje por nivel
 // los personajes probablemente tengan un comportamiendo más complejo que solamente
