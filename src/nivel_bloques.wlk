@@ -24,6 +24,7 @@ object nivelBloques {
 		game.addVisual(caja3)
 		game.addVisual(caja4)
 		game.addVisual(caja5)
+		game.addVisual(puerta)
 			
 		// personaje, es importante que sea el último visual que se agregue
 		var personaje = new PersonajeNivel1()

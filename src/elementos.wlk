@@ -17,3 +17,7 @@ class Bloque {
 		} //getObjectsIn(position)
 	}
 }
+object puerta {
+	var property position = game.at(0, 14)
+	const property image = "puerta.png"
+}
