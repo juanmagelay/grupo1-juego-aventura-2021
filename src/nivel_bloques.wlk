@@ -3,12 +3,16 @@ import fondo.*
 import personajes.*
 import elementos.*
 import nivel_llaves.*
-
+import utilidades.*
 
 object nivelBloques {
 	var caja1 = new Bloque(position=game.at(3,12))
 	var caja2 = new Bloque(position=game.at(4,8))
-	const property cajas = [caja1, caja2]
+	var caja3 = new Bloque(position=game.at(2,10))
+	var caja4 = new Bloque(position=game.at(10,8))
+	var caja5 = new Bloque(position=game.at(3,2))
+	//var caja5 = new Bloque(position=utilidadesParaJuego.posicionArbitraria())
+	const property cajas = [caja1, caja2, caja3, caja4, caja5]
 	
 	method configurate() {
 		// fondo - es importante que sea el primer visual que se agregue
@@ -17,6 +21,9 @@ object nivelBloques {
 		// otros visuals, p.ej. bloques o llaves
 		game.addVisual(caja1)
 		game.addVisual(caja2)
+		game.addVisual(caja3)
+		game.addVisual(caja4)
+		game.addVisual(caja5)
 			
 		// personaje, es importante que sea el último visual que se agregue
 		var personaje = new PersonajeNivel1()
