@@ -31,7 +31,7 @@ class PersonajeNivel1 inherits PersonajeSimple {
 		if (self.position().y() > 1) {
 			self.position(self.position().down(1))
 			direccion = "abajo"
-		} else if ( (self.position().y() == 1)  and game.getObjectsIn(posicionSiguiente).isEmpty() ) {
+		} else if ( (self.position().y() == 1)  and (game.getObjectsIn(posicionSiguiente).isEmpty() or posicionSiguiente == puerta.position()) ) {
 			self.position(self.position().down(1))
 			direccion = "abajo"
 		}
@@ -42,7 +42,7 @@ class PersonajeNivel1 inherits PersonajeSimple {
 		if (self.position().x() < game.width() - 2) {
 			self.position(self.position().right(1))
 			direccion = "derecha"
-		} else if ( (self.position().x() < game.width() -1)  and game.getObjectsIn(posicionSiguiente).isEmpty() ) {
+		} else if ( (self.position().x() < game.width() -1)  and (game.getObjectsIn(posicionSiguiente).isEmpty() or posicionSiguiente == puerta.position()) ) {
 			self.position(self.position().right(1))
 			direccion = "derecha"
 		}

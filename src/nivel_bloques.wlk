@@ -35,7 +35,7 @@ object nivelBloques {
 		keyboard.left().onPressDo{personaje.moverAIzquierda()}
 		
 		//colision
-		game.whenCollideDo(personaje, { c => c.moverHacia(personaje.direccion()) } )
+		game.whenCollideDo(personaje, { c => if(cajas.contains(c)) { c.moverHacia(personaje.direccion()) } } )
 			
 		keyboard.n().onPressDo({ self.terminar() })
 	}
