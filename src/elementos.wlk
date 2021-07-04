@@ -1,4 +1,5 @@
 import wollok.game.*
+import utilidades.*
 
 class Bloque {
 	var property position
@@ -26,4 +27,14 @@ object deposito {
 	method tienePosicion(unaPosicion) { 
 		return unaPosicion.x().between(5,9) and unaPosicion.y().between(7,12)
 	}
+}
+class Llave {
+	var property position = utilidadesParaJuego.posicionArbitraria()
+	var property image = "llave.png"
+}
+
+class Pollo {
+	var property energiaQueDa
+	var property position = utilidadesParaJuego.posicionArbitraria()
+	var property image = "pollo.png"
 }
