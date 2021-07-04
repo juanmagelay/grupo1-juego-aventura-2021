@@ -16,8 +16,14 @@ class Bloque {
 			self.position(self.position().left(1))
 		} //getObjectsIn(position)
 	}
+	method estaEnDeposito() { return deposito.tienePosicion(self.position()) }
 }
 object puerta {
 	var property position = game.at(14, 0)
 	const property image = "puerta.png"
+}
+object deposito {
+	method tienePosicion(unaPosicion) { 
+		return unaPosicion.x().between(5,9) and unaPosicion.y().between(7,12)
+	}
 }
