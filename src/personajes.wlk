@@ -29,28 +29,28 @@ class PersonajeSimple {
 class PersonajeNivel1 inherits PersonajeSimple {
 	
 	override method moverAArriba() {
-		if (posicionesDisponibles.arriba(self)) {
+		if (lugar.arriba(self) or lugarVacio.arriba(self)) {
 			super()
 			direccion = "arriba"
 		}
 	}
 	
 	override method moverAAbajo() {
-		if (posicionesDisponibles.abajo(self)) {
+		if (lugar.abajo(self) or lugarVacio.abajo(self)) {
 			super()
 			direccion = "abajo"
 		}
 	}
 	
 	override method moverADerecha() {
-		if (posicionesDisponibles.derecha(self)) {
+		if (lugar.derecha(self) or lugarVacio.derecha(self)) {
 			super()
 			direccion = "derecha"
 		}
 	}
 	
 	override method moverAIzquierda() {
-		if (posicionesDisponibles.izquierda(self)) {
+		if (lugar.izquierda(self) or lugarVacio.izquierda(self)) {
 			super()
 			direccion = "izquierda"
 		}
