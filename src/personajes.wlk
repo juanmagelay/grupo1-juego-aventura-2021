@@ -62,20 +62,28 @@ class PersonajeNivel2 inherits PersonajeSimple {
 	var property energia = 40
 	
 	override method moverAArriba() {
-		self.position(self.position().up(1))
-		energia -= 1
+		if (lugar.arriba(self)) {
+			super()
+			energia -= 1
+		}
 	}
 	override method moverAAbajo() {
-		super()
-		energia -= 1
+		if (lugar.abajo(self)) {
+			super()
+			energia -= 1
+		}
 	}
 	override method moverADerecha() {
-		super()
-		energia -= 1
+		if (lugar.derecha(self)) {
+			super()
+			energia -= 1
+		}
 	}
 	override method moverAIzquierda() {
-		super()
-		energia -= 1
+		if (lugar.izquierda(self)) {
+			super()
+			energia -= 1
+		}
 	}
 	method agregarLlave(unaLlave) {llaves.add(unaLlave)}
 	method comer(unPollo) {energia += unPollo.energiaQueDa()}
