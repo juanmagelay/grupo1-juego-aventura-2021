@@ -36,6 +36,12 @@ object nivelBloques {
         
         //colision
         game.whenCollideDo(personaje, { c => if(cajas.contains(c)) { c.moverHacia(personaje.direccion()) } } )
+		game.whenCollideDo(caja1, { c => if(cajas.contains(c)) { caja1.moverHacia(personaje.direccion()) } } )
+		game.whenCollideDo(caja2, { c => if(cajas.contains(c)) { caja2.moverHacia(personaje.direccion()) } } )
+		game.whenCollideDo(caja3, { c => if(cajas.contains(c)) { caja3.moverHacia(personaje.direccion()) } } )
+		game.whenCollideDo(caja4, { c => if(cajas.contains(c)) { caja4.moverHacia(personaje.direccion()) } } )
+		game.whenCollideDo(caja5, { c => if(cajas.contains(c)) { caja5.moverHacia(personaje.direccion()) } } )
+		
 
         //teclado
         keyboard.up().onPressDo{personaje.moverAArriba()}

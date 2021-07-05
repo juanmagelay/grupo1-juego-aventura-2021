@@ -28,25 +28,25 @@ class PersonajeSimple {
 
 class PersonajeNivel1 inherits PersonajeSimple {
 	override method moverAArriba() {
-		if (lugar.arriba(self) and lugarVacio.arriba(self)) {
+		if (lugarNivel1.arriba(self) or lugarVacioEnElBorde.arriba(self)) {
 			super()
 			direccion = "arriba"
 		}
 	}
 	override method moverAAbajo() {
-		if (lugar.abajo(self) and lugarVacio.abajo(self)) {
+		if (lugarNivel1.abajo(self) or lugarVacioEnElBorde.abajo(self)) {
 			super()
 			direccion = "abajo"
 		}
 	}
 	override method moverADerecha() {
-		if (lugar.derecha(self) and lugarVacio.derecha(self)) {
+		if (lugarNivel1.derecha(self) or lugarVacioEnElBorde.derecha(self)) {
 			super()
 			direccion = "derecha"
 		}
 	}
 	override method moverAIzquierda() {
-		if (lugar.izquierda(self) and lugarVacio.izquierda(self)) {
+		if (lugarNivel1.izquierda(self) or lugarVacioEnElBorde.izquierda(self)) {
 			super()
 			direccion = "izquierda"
 		}
@@ -58,25 +58,25 @@ class PersonajeNivel2 inherits PersonajeSimple {
 	var property energia = 40
 	
 	override method moverAArriba() {
-		if (lugar.arriba(self)) {
+		if (lugarNivel2.arriba(self)) {
 			super()
 			energia -= 1
 		}
 	}
 	override method moverAAbajo() {
-		if (lugar.abajo(self)) {
+		if (lugarNivel2.abajo(self)) {
 			super()
 			energia -= 1
 		}
 	}
 	override method moverADerecha() {
-		if (lugar.derecha(self)) {
+		if (lugarNivel2.derecha(self)) {
 			super()
 			energia -= 1
 		}
 	}
 	override method moverAIzquierda() {
-		if (lugar.izquierda(self)) {
+		if (lugarNivel2.izquierda(self)) {
 			super()
 			energia -= 1
 		}

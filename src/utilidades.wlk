@@ -8,7 +8,24 @@ object utilidadesParaJuego {
 		)
 	}
 }
-object lugar {
+
+object lugarNivel1 {
+	method arriba(unPersonaje) {
+		return (unPersonaje.position().y() < game.height() - 2) 
+	}
+	method abajo(unPersonaje) {
+		return unPersonaje.position().y() > 1
+	}
+	method izquierda(unPersonaje) {
+		return unPersonaje.position().x() > 1
+	}
+	method derecha(unPersonaje) {
+		return unPersonaje.position().x() < game.width() - 2
+	}
+}
+
+
+object lugarNivel2 {
 	method arriba(unPersonaje) {
 		return unPersonaje.position().y() < game.height() - 1
 	}
@@ -23,24 +40,28 @@ object lugar {
 	}
 }
 
-object lugarVacio {
+
+object lugarVacioEnElBorde {
 	method arriba(unPersonaje) {
-		var posicionSiguiente = game.at(unPersonaje.position().x(),(game.height() - 1))
+		const posicionSiguiente = game.at(unPersonaje.position().x(),(game.height() - 1))
 		return 
-			game.getObjectsIn(posicionSiguiente).isEmpty()
+			(unPersonaje.position().y() == game.height() - 2 ) and game.getObjectsIn(posicionSiguiente).isEmpty()
 	}
+	
 	method abajo(unPersonaje) {
-		var posicionSiguiente = game.at(unPersonaje.position().x(),0)
+		const posicionSiguiente = game.at(unPersonaje.position().x(),0)
 		return
-			game.getObjectsIn(posicionSiguiente).isEmpty() or posicionSiguiente == puerta.position()
+			unPersonaje.position().y() == 1 and (game.getObjectsIn(posicionSiguiente).isEmpty() or posicionSiguiente == puerta.position())
 	}
 	method derecha(unPersonaje) {
-		var posicionSiguiente = game.at(( game.width() -1),unPersonaje.position().y())
-		return game.getObjectsIn(posicionSiguiente).isEmpty() or posicionSiguiente == puerta.position()
+		const posicionSiguiente = game.at(( game.width() -1),unPersonaje.position().y())
+		return 
+			unPersonaje.position().x() == game.width() - 2 and (game.getObjectsIn(posicionSiguiente).isEmpty() or posicionSiguiente == puerta.position())
 	}
 	method izquierda(unPersonaje) {
-		var posicionSiguiente = game.at(0, unPersonaje.position().y())
-		return game.getObjectsIn(posicionSiguiente).isEmpty()
+		const posicionSiguiente = game.at(0, unPersonaje.position().y() - 1)
+		return 
+			unPersonaje.position().x() == 1 and game.getObjectsIn(posicionSiguiente).isEmpty()
 	}
 }
 
