@@ -26,11 +26,13 @@ object lugar {
 object lugarVacio {
 	method arriba(unPersonaje) {
 		var posicionSiguiente = game.at(unPersonaje.position().x(),(game.height() - 1))
-		return game.getObjectsIn(posicionSiguiente).isEmpty()
+		return 
+			game.getObjectsIn(posicionSiguiente).isEmpty()
 	}
 	method abajo(unPersonaje) {
 		var posicionSiguiente = game.at(unPersonaje.position().x(),0)
-		return game.getObjectsIn(posicionSiguiente).isEmpty() or posicionSiguiente == puerta.position()
+		return
+			game.getObjectsIn(posicionSiguiente).isEmpty() or posicionSiguiente == puerta.position()
 	}
 	method derecha(unPersonaje) {
 		var posicionSiguiente = game.at(( game.width() -1),unPersonaje.position().y())

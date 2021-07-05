@@ -27,30 +27,26 @@ class PersonajeSimple {
 }
 
 class PersonajeNivel1 inherits PersonajeSimple {
-	
 	override method moverAArriba() {
-		if (lugar.arriba(self) or lugarVacio.arriba(self)) {
+		if (lugar.arriba(self) and lugarVacio.arriba(self)) {
 			super()
 			direccion = "arriba"
 		}
 	}
-	
 	override method moverAAbajo() {
-		if (lugar.abajo(self) or lugarVacio.abajo(self)) {
+		if (lugar.abajo(self) and lugarVacio.abajo(self)) {
 			super()
 			direccion = "abajo"
 		}
 	}
-	
 	override method moverADerecha() {
-		if (lugar.derecha(self) or lugarVacio.derecha(self)) {
+		if (lugar.derecha(self) and lugarVacio.derecha(self)) {
 			super()
 			direccion = "derecha"
 		}
 	}
-	
 	override method moverAIzquierda() {
-		if (lugar.izquierda(self) or lugarVacio.izquierda(self)) {
+		if (lugar.izquierda(self) and lugarVacio.izquierda(self)) {
 			super()
 			direccion = "izquierda"
 		}
