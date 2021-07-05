@@ -9,7 +9,7 @@ object nivelLlaves {
 	method configurate() {
 		// fondo - es importante que sea el primer visual que se agregue
 		game.addVisual(new Fondo(image="fondoCompleto.png"))
-				 
+		 
 		// otros visuals, p.ej. bloques o llaves
 		const llave1 = new Llave()
 		const llave2 = new Llave()
