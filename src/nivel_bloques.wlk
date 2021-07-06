@@ -42,7 +42,6 @@ object nivelBloques {
 		game.whenCollideDo(caja4, { c => if(cajas.contains(c)) { caja4.moverHacia(personaje.direccion()) } } )
 		game.whenCollideDo(caja5, { c => if(cajas.contains(c)) { caja5.moverHacia(personaje.direccion()) } } )
 		
-
         //teclado
         keyboard.up().onPressDo{personaje.moverAArriba()}
         keyboard.down().onPressDo{personaje.moverAAbajo()}

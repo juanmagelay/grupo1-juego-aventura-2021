@@ -71,7 +71,7 @@ object nivelLlaves {
 					personaje.agregarLlave(l) 
 					game.removeVisual(l)
 				}
-				else if(modores.contdificaains(l)) {
+				else if(modificadores.contdificaains(l)) {
 					personaje.agregarModificador(l)
 					game.removeVisual(l)
 				}

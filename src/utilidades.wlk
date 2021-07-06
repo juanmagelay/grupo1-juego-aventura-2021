@@ -24,7 +24,6 @@ object lugarNivel1 {
 	}
 }
 
-
 object lugarNivel2 {
 	method arriba(unPersonaje) {
 		return unPersonaje.position().y() < game.height() - 1
@@ -40,14 +39,12 @@ object lugarNivel2 {
 	}
 }
 
-
 object lugarVacioEnElBorde {
 	method arriba(unPersonaje) {
 		const posicionSiguiente = game.at(unPersonaje.position().x(),(game.height() - 1))
 		return 
 			(unPersonaje.position().y() == game.height() - 2 ) and game.getObjectsIn(posicionSiguiente).isEmpty()
 	}
-	
 	method abajo(unPersonaje) {
 		const posicionSiguiente = game.at(unPersonaje.position().x(),0)
 		return
