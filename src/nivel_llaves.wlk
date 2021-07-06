@@ -18,11 +18,11 @@ object nivelLlaves {
 		game.addVisual(llave2)
 		game.addVisual(llave3)
 		
-		const pollo1 = new Pollo(energiaQueDa=5)
-		const pollo2 = new Pollo(energiaQueDa=10)
-		const pollo3 = new Pollo(energiaQueDa=3)
-		const pollo4 = new Pollo(energiaQueDa=20)
-		const pollo5 = new Pollo(energiaQueDa=50)
+		const pollo1 = new Pollo(energiaQueDa = 10)
+		const pollo2 = new Pollo(energiaQueDa = 10)
+		const pollo3 = new Pollo(energiaQueDa = 5)
+		const pollo4 = new Pollo(energiaQueDa = 5)
+		const pollo5 = new Pollo(energiaQueDa = 5)
 		
 		game.addVisual(pollo1)
 		game.addVisual(pollo2)
@@ -30,8 +30,25 @@ object nivelLlaves {
 		game.addVisual(pollo4)
 		game.addVisual(pollo5)
 		
+		const duplicador1 = new Duplicador()
+		const duplicador2 = new Duplicador()
+		
+		game.addVisual(duplicador1)
+		game.addVisual(duplicador2)
+		
+		const reforzador1 = new Reforzador()
+		const reforzador2 = new Reforzador()
+		
+		game.addVisual(reforzador1)
+		game.addVisual(reforzador2)
+		
+		const triplicador1 = new Triplicador()
+		
+		game.addVisual(triplicador1)
+		
 		const llaves = [llave1, llave2, llave3]
 		const pollos = [pollo1, pollo2, pollo3, pollo4, pollo5]
+		const modificadores = [duplicador1, duplicador2, reforzador1, reforzador2, triplicador1]
 		
 		
 			
@@ -54,8 +71,13 @@ object nivelLlaves {
 					personaje.agregarLlave(l) 
 					game.removeVisual(l)
 				}
+				else if(modores.contdificaains(l)) {
+					personaje.agregarModificador(l)
+					game.removeVisual(l)
+				}
 				else if (pollos.contains(l)) {
-					personaje.comer(l) game.removeVisual(l)
+					personaje.comer(l)
+					game.removeVisual(l)
 				}
 				else self.ganar()
 			

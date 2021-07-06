@@ -47,4 +47,38 @@ class Pollo {
 	var property energiaQueDa
 	var property position = utilidadesParaJuego.posicionArbitraria()
 	var property image = "pollo.png"
+
+}
+
+class Duplicador {
+	var property position = utilidadesParaJuego.posicionArbitraria()
+	var property image = "duplicador.png"
+	
+	method energiaQueDa(personaje, pollo) = pollo.energiaQueDa() * 2
+	
+}
+
+class Reforzador{
+	var property position = utilidadesParaJuego.posicionArbitraria()
+	var property image = "reforzador.png"
+	
+	method energiaQueDa(personaje, pollo) {
+		return
+			if (personaje.energia() < 10)
+				pollo.energiaQueDa() * 2 + 20
+			else pollo.energiaQueDa() * 2
+	} 
+	
+}
+
+class Triplicador {
+	var property position = utilidadesParaJuego.posicionArbitraria()
+	var property image = "triplicador.png"
+	
+	 method energiaQueDa(personaje, pollo) {
+	 	return 
+			if (personaje.energia().even())
+				pollo.energiaQueDa() * 3
+			else 0
+	}	
 }

@@ -56,6 +56,7 @@ class PersonajeNivel1 inherits PersonajeSimple {
 class PersonajeNivel2 inherits PersonajeSimple {
 	var property llaves = []
 	var property energia = 40
+	var property modificadores = []
 	
 	override method moverAArriba() {
 		if (lugarNivel2.arriba(self)) {
@@ -82,5 +83,16 @@ class PersonajeNivel2 inherits PersonajeSimple {
 		}
 	}
 	method agregarLlave(unaLlave) {llaves.add(unaLlave)}
-	method comer(unPollo) {energia += unPollo.energiaQueDa()}
+	
+	method agregarModificador(modificador) {
+		modificadores.remove(modificadores.get(0))
+		modificadores.add(modificador)
+	}
+	
+	method comer(unPollo) {
+		if (not modificadores.isEmpty()) {
+			energia += modificadores.get(0).energiaQueDa(self, unPollo)
+			modificadores.remove(modificadores.get(0))
+		} else energia += unPollo.energiaQueDa()
+	}
 }
