@@ -85,7 +85,7 @@ class PersonajeNivel2 inherits PersonajeSimple {
 	method agregarLlave(unaLlave) {llaves.add(unaLlave)}
 	
 	method agregarModificador(modificador) {
-		modificadores.remove(modificadores.get(0))
+		if (! modificadores.isEmpty()) { modificadores.remove(modificadores.get(0)) }
 		modificadores.add(modificador)
 	}
 	
