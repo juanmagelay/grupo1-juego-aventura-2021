@@ -86,41 +86,43 @@ class CajaSorpresa {
 	var property position = utilidadesParaJuego.posicionArbitraria()
 	var property image = "sorpresa.png"
 	
-	method efecto(personaje)
+	method efecto(personaje) {
+		self.image("sorpresa-abierta.png")
+	}
 }
 
 class Mas30 inherits CajaSorpresa {
 	override method efecto(personaje) {
-		if(self.image() == "sorpresa.png") {
-		  personaje.energia(personaje.energia() + 30)
-		  self.image("sorpresa-abierta.png")
-		}	
+		if (self.image() == "sorpresa.png") {
+		  	personaje.energia(personaje.energia() + 30)
+		  	super(personaje)	
+		}
 	}
 }
 
 class Menos15 inherits CajaSorpresa {
 	override method efecto(personaje) {
-		if(self.image() == "sorpresa.png") {
-		  personaje.energia(personaje.energia() - 15)
-		  self.image("sorpresa-abierta.png")
-		}	
+		if (self.image() == "sorpresa.png") {
+			 personaje.energia(personaje.energia() - 15)
+			 super(personaje)	
+		}
 	}
 }
 
 class AparecePollo inherits CajaSorpresa {
 	override method efecto(personaje) {
-		if(self.image() == "sorpresa.png") {
-		  game.addVisual(new Pollo(energiaQueDa = 5))
-		  self.image("sorpresa-abierta.png")
-		}	
+		if (self.image() == "sorpresa.png") {
+			game.addVisual(new Pollo(energiaQueDa = 5))
+			super(personaje)	
+		}
 	}
 }
 
 class Teletransporta inherits CajaSorpresa {
 	override method efecto(personaje) {
-		if(self.image() == "sorpresa.png") {
-		  personaje.position(utilidadesParaJuego.posicionArbitraria())
-		  self.image("sorpresa-abierta.png")
-		}	
+		if (self.image() == "sorpresa.png") {
+			personaje.position(utilidadesParaJuego.posicionArbitraria())
+		  	super(personaje)	
+		}
 	}
 }

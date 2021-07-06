@@ -62,3 +62,27 @@ object lugarVacioEnElBorde {
 	}
 }
 
+object hayCajaSorpresa {
+	var property posicionSiguiente
+	method arriba(unPersonaje) {
+		posicionSiguiente = game.at(unPersonaje.position().x(), unPersonaje.position().y() + 1)
+		return 
+			not game.getObjectsIn(posicionSiguiente).isEmpty() and (game.getObjectsIn(posicionSiguiente).get(0).image() == "sorpresa.png" or game.getObjectsIn(posicionSiguiente).get(0).image() == "sorpresa-abierta.png")
+	}
+	method abajo(unPersonaje) {
+		posicionSiguiente = game.at(unPersonaje.position().x(), unPersonaje.position().y() - 1)
+		return
+			not game.getObjectsIn(posicionSiguiente).isEmpty() and (game.getObjectsIn(posicionSiguiente).get(0).image() == "sorpresa.png" or game.getObjectsIn(posicionSiguiente).get(0).image() == "sorpresa-abierta.png")
+	}
+	method derecha(unPersonaje) {
+		posicionSiguiente = game.at(unPersonaje.position().x() + 1,unPersonaje.position().y())
+		return 
+			not game.getObjectsIn(posicionSiguiente).isEmpty() and (game.getObjectsIn(posicionSiguiente).get(0).image() == "sorpresa.png" or game.getObjectsIn(posicionSiguiente).get(0).image() == "sorpresa-abierta.png")
+	}
+	method izquierda(unPersonaje) {
+		posicionSiguiente = game.at(unPersonaje.position().x() - 1, unPersonaje.position().y())
+		return 
+			not game.getObjectsIn(posicionSiguiente).isEmpty() and (game.getObjectsIn(posicionSiguiente).get(0).image() == "sorpresa.png" or game.getObjectsIn(posicionSiguiente).get(0).image() == "sorpresa-abierta.png")
+	}	
+}
+

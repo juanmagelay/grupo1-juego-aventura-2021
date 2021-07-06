@@ -59,36 +59,42 @@ class PersonajeNivel2 inherits PersonajeSimple {
 	var property modificadores = []
 	
 	override method moverAArriba() {
-		if (lugarNivel2.arriba(self)) {
+		if (lugarNivel2.arriba(self) and not hayCajaSorpresa.arriba(self)) {
 			super()
 			energia -= 1
+		} else if (hayCajaSorpresa.arriba(self)) {
+			game.getObjectsIn(hayCajaSorpresa.posicionSiguiente()).get(0).efecto(self)
 		}
 	}
 	override method moverAAbajo() {
-		if (lugarNivel2.abajo(self)) {
+		if (lugarNivel2.abajo(self) and not hayCajaSorpresa.abajo(self)) {
 			super()
 			energia -= 1
+		} else if (hayCajaSorpresa.abajo(self)) {
+			game.getObjectsIn(hayCajaSorpresa.posicionSiguiente()).get(0).efecto(self)
 		}
 	}
 	override method moverADerecha() {
-		if (lugarNivel2.derecha(self)) {
+		if (lugarNivel2.derecha(self) and not hayCajaSorpresa.derecha(self)) {
 			super()
 			energia -= 1
+		} else if (hayCajaSorpresa.derecha(self)) {
+			game.getObjectsIn(hayCajaSorpresa.posicionSiguiente()).get(0).efecto(self)
 		}
 	}
 	override method moverAIzquierda() {
-		if (lugarNivel2.izquierda(self)) {
+		if (lugarNivel2.izquierda(self) and not hayCajaSorpresa.izquierda(self)) {
 			super()
 			energia -= 1
+		} else if (hayCajaSorpresa.izquierda(self)) {
+			game.getObjectsIn(hayCajaSorpresa.posicionSiguiente()).get(0).efecto(self)
 		}
 	}
 	method agregarLlave(unaLlave) {llaves.add(unaLlave)}
-	
 	method agregarModificador(modificador) {
 		if (! modificadores.isEmpty()) { modificadores.remove(modificadores.get(0)) }
 		modificadores.add(modificador)
 	}
-	
 	method comer(unPollo) {
 		if (not modificadores.isEmpty()) {
 			energia += modificadores.get(0).energiaQueDa(self, unPollo)

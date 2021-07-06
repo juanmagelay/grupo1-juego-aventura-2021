@@ -42,8 +42,6 @@ object nivelLlaves {
 		const triplicador1 = new Triplicador()
 		game.addVisual(triplicador1)
 		
-		const llaves = [llave1, llave2, llave3]
-		const pollos = [pollo1, pollo2, pollo3, pollo4, pollo5]
 		const modificadores = [duplicador1, duplicador2, reforzador1, reforzador2, triplicador1]
 		
 		const sorpresa1 = new Mas30()
@@ -55,25 +53,23 @@ object nivelLlaves {
 		game.addVisual(sorpresa3)
 		game.addVisual(sorpresa4)
 				
-		const sorpresas = [sorpresa1, sorpresa2, sorpresa3, sorpresa4]	
-		
 		// personaje, es importante que sea el último visual que se agregue
 		const personaje = new PersonajeNivel2()
 		game.addVisual(personaje)
 		
 		// teclado
 		// este es para probar, no es necesario dejarlo
-		keyboard.up().onPressDo{if (personaje.energia() == 0) self.perder() else personaje.moverAArriba()}
-		keyboard.down().onPressDo{if (personaje.energia() == 0) self.perder() else personaje.moverAAbajo()}
-		keyboard.right().onPressDo{if (personaje.energia() == 0) self.perder() else personaje.moverADerecha()}
-		keyboard.left().onPressDo{if (personaje.energia() == 0) self.perder() else personaje.moverAIzquierda()}
+		keyboard.up().onPressDo{if (personaje.energia() <= 0) self.perder() else personaje.moverAArriba()}
+		keyboard.down().onPressDo{if (personaje.energia() <= 0) self.perder() else personaje.moverAAbajo()}
+		keyboard.right().onPressDo{if (personaje.energia() <= 0) self.perder() else personaje.moverADerecha()}
+		keyboard.left().onPressDo{if (personaje.energia() <= 0) self.perder() else personaje.moverAIzquierda()}
 		
 		keyboard.p().onPressDo{game.say(personaje, "Mi energía es: " + personaje.energia())}
 	
 		// colisiones, acá sí hacen falta
 		game.whenCollideDo(personaje, 
 			{ l => 
-				if(llaves.contains(l)) {
+				if(l.image() == "llave.png") {
 					personaje.agregarLlave(l) 
 					game.removeVisual(l)
 					if (personaje.llaves().size() == 3) {game.addVisual(puerta)}
@@ -82,11 +78,14 @@ object nivelLlaves {
 					personaje.agregarModificador(l)
 					game.removeVisual(l)
 				}
-				else if (pollos.contains(l)) {
+				else if (l.image() == "pollo.png") {
 					personaje.comer(l)
 					game.removeVisual(l)
 				}
-				else self.ganar()
+				else if (personaje.position() == puerta.position()) {
+					self.ganar()
+				
+				}
 			}
 		)
 	}
